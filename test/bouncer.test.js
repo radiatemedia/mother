@@ -1,16 +1,6 @@
 describe("Bouncer", function() {
   describe(".register(features, actors)", function() {
 
-    it("raises an 'invalid argument' exception if +features+ isn't a POJO (Plain Old JavaScript Object)", function() {
-      expect(Bouncer.register(            )).toThrow('invalid argument');
-      expect(Bouncer.register(null        )).toThrow('invalid argument');
-      expect(Bouncer.register(true        )).toThrow('invalid argument');
-      expect(Bouncer.register(false       )).toThrow('invalid argument');
-      expect(Bouncer.register([          ])).toThrow('invalid argument');
-      expect(Bouncer.register("not a POJO")).toThrow('invalid argument');
-      expect(Bouncer.register(3.1415926535)).toThrow('invalid argument');
-    });
-
     it("enables every feature specified in +features+ (each property name defines a feature) globally", function() {
     });
 
@@ -29,7 +19,5 @@ describe("Bouncer", function() {
     it("only enables version _1_ when enabling a global feature in +features+ without specifying any specific versions", function() {
     });
 
-    it("allows +actors+ to be +null+ or undefined", function() {
-    });
   });
 });
