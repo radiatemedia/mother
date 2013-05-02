@@ -1,16 +1,16 @@
 {
-  "name"            : "bouncer",
+  "name"            : "mother",
   "version"         : "0.0.1",
   "license"         : "MIT",
   "description"     : "Very small library to assist with feature flipping.",
   "keywords"        : ["feature", "flipping"],
-  "homepage"        :           "http://github.com/radiatemedia/bouncer",
-  "bugs"            : { "url" : "http://github.com/radiatemedia/bouncer/issues" },
+  "homepage"        :           "http://github.com/radiatemedia/mother",
+  "bugs"            : { "url" : "http://github.com/radiatemedia/mother/issues" },
   "contributors"    : [ "Kendall Gifford <zettabyte@gmail.com>" ],
-  "files"           : [ "lib/bouncer.js" ],
-  "main"            : "./lib/bouncer.js",
+  "files"           : [ "lib/mother.js" ],
+  "main"            : "./lib/mother.js",
   "directories.lib" : "./lib",
-  "repository"      : { "type" : "git", "url" : "http://github.com/radiatemedia/bouncer.git" },
+  "repository"      : { "type" : "git", "url" : "http://github.com/radiatemedia/mother.git" },
   "devDependencies" : { "jasmine-node" : ">=1.7.0 <2.0" },
-  "scripts"         : { "test" : "jasmine-node --color --matchall test/bouncer.test.js" }
+  "scripts"         : { "test" : "jasmine-node --color --matchall test/mother.test.js" }
 }
