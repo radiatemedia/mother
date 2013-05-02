@@ -1,0 +1,16 @@
+{
+  "name"            : "bouncer",
+  "version"         : "0.0.1",
+  "license"         : "MIT",
+  "description"     : "Very small library to assist with feature flipping.",
+  "keywords"        : ["feature", "flipping"],
+  "homepage"        :           "http://github.com/radiatemedia/bouncer",
+  "bugs"            : { "url" : "http://github.com/radiatemedia/bouncer/issues" },
+  "contributors"    : [ "Kendall Gifford <zettabyte@gmail.com>" ],
+  "files"           : [ "lib/bouncer.js" ],
+  "main"            : "./lib/bouncer.js",
+  "directories.lib" : "./lib",
+  "repository"      : { "type" : "git", "url" : "http://github.com/radiatemedia/bouncer.git" },
+  "devDependencies" : { "jasmine-node" : ">=1.7.0 <2.0" },
+  "scripts"         : { "test" : "jasmine-node --color --matchall test/bouncer.test.js" }
+}

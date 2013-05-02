@@ -1,3 +1,10 @@
+var Bouncer;
+if (typeof(exports) !== 'undefined') {
+  Bouncer = require('../lib/bouncer.js');
+} else {
+  Bouncer = this.Bouncer;
+}
+
 describe("Bouncer", function() {
 
   describe(".register(features)", function() {
