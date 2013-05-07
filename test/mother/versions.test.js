@@ -55,8 +55,8 @@ describe("Mother // Versioning Features", function() {
       it("fails if a 'feature definition' property's value is a Function", function() {
         // TODO: future versions may allow a function which dynamically determines
         // whether a feature is enabled or not
-        registration = function() {
-          callback   = function() { return true; };
+        var registration = function() {
+          var callback = function() { return true; };
           Mother.register({ "test": callback });
         };
         expect(registration).toThrow();
@@ -112,8 +112,8 @@ describe("Mother // Versioning Features", function() {
       it("fails if a 'feature definition' has a 'version definition' who's property's value is a Function", function() {
         // TODO: future versions may allow a function which dynamically determines
         // whether a specific version of a feature is enabled or not
-        registration = function() {
-          callback   = function() { return true; };
+        var registration = function() {
+          var callback = function() { return true; };
           Mother.register({ "test": { 1: callback }});
         };
         expect(registration).toThrow();
@@ -183,4 +183,4 @@ describe("Mother // Versioning Features", function() {
     });
   }); // describe(".clear()",...)
 
-}); // describe("Mother",...)
+}); // describe("Mother // Versioning Features",...)

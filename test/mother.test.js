@@ -31,12 +31,12 @@ describe("Mother // Basic Functionality", function() {
     });
 
     it("permits the +features+ parameter to be an empty object", function() {
-      registration = function() { Mother.register({}); };
-      expect(registration).not.toThrow();
+      Mother.register({}); // doesn't raise error
+      expect(Mother.allows("test")).toBeFalsy();
     });
 
     it("fails if you don't provide an object for the +features+ parameter", function() {
-      registration = function() { Mother.register("string literal that's not an object"); };
+      var registration = function() { Mother.register("string literal that's not an object"); };
       expect(registration).toThrow();
       registration = function() { Mother.register(); };
       expect(registration).toThrow();
@@ -104,4 +104,4 @@ describe("Mother // Basic Functionality", function() {
     });
   }); // describe(".clear()",...)
 
-}); // describe("Mother",...)
+}); // describe("Mother // Basic Functionality",...)
