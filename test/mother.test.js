@@ -15,6 +15,10 @@ describe("Mother // Basic Functionality", function() {
 
   describe(".register(features) // ignoring +actors+ parameter and 'versions' of features", function() {
 
+    it("returns the Mother object to optionally allow chaining", function() {
+      expect(Mother.register({})).toBe(Mother);
+    });
+
     it("permits registration of enabled features", function() {
       Mother.register({ "test": true });
       expect(Mother.allows("test")).toBeTruthy();
@@ -97,6 +101,10 @@ describe("Mother // Basic Functionality", function() {
   }); // describe(".allows(feature) // ignoring +version+ parameter and the 'current actor'",...)
 
   describe(".clear()", function() {
+    it("returns the Mother object to optionally allow chaining", function() {
+      expect(Mother.clear()).toBe(Mother);
+    });
+
     it("clears out all feature registration state", function() {
       Mother.register({ "test": true });
       Mother.clear();

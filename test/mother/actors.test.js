@@ -15,6 +15,10 @@ describe("Mother // of Current Actor", function() {
 
   describe(".of(actor)", function() {
 
+    it("returns the Mother object to optionally allow chaining", function() {
+      expect(Mother.of(null)).toBe(Mother);
+    });
+
     it("sets the current actor to +actor+ for future Mother.allows() calls", function() {
       Mother.register({}, { "john": { "test": true }});
       Mother.of("john");
