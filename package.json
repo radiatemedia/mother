@@ -14,6 +14,6 @@
   "directories"     : { "lib" : "./lib", "test" : "./test", "example" : "./examples" },
   "engines"         : { "node" : ">=0.8" },
   "repository"      : { "type" : "git", "url" : "http://github.com/radiatemedia/mother.git" },
-  "devDependencies" : { "jasmine-node" : ">=1.7.0 <2.0" },
-  "scripts"         : { "test" : "jasmine-node --color --matchall test/mother.test.js  test/mother/versions.test.js test/mother/actors.test.js" }
+  "devDependencies" : { "jasmine-node" : ">=1.7.0 <2.0", "istanbul" : ">=0.1.34 <1.0" },
+  "scripts"         : { "test" : "istanbul test jasmine-node -- --color --matchall test/mother.test.js  test/mother/versions.test.js test/mother/actors.test.js" }
 }
