@@ -1,6 +1,7 @@
 # Mother
 
 [![Build Status](https://travis-ci.org/radiatemedia/mother.png?branch=master)](https://travis-ci.org/radiatemedia/mother)
+[![Dependency Status](https://gemnasium.com/radiatemedia/mother.png)](https://gemnasium.com/radiatemedia/mother)
 
 _Mother_ is a very small library to assist with feature flipping your
 JavaScript application.
