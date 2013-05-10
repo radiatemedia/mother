@@ -1,6 +1,6 @@
 {
   "name"            : "mother",
-  "version"         : "0.0.1",
+  "version"         : "1.0.0",
   "license"         : "MIT",
   "description"     : "Very small library to assist with feature flipping.",
   "keywords"        : ["feature", "flipping", "switches"],

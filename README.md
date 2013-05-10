@@ -104,8 +104,7 @@ we'll be querying with `Mother.of(actor)`. This saves `actor` as the
 specific feature, the answer will take into account the current actor.
 
 ```javascript
-Mother.of("john"); // "john" is now the "current actor" in your app
-if (Mother.allows("feature2")) {
+if (Mother.of("john").allows("feature2")) { // "john" is now the "current actor" in your app
   // executed if the mother of "john" specifically allows "feature2"
 }
 ```
@@ -134,14 +133,14 @@ if (Mother.allows("feature2")) {
   console.log("This code won't be executed! 'feature2' is disabled globally");
 }
 
-// Set "current actor" to "john"
 Mother.of("john");
+// ... "john" is "current actor" ...
 if (Mother.allows("feature2")) {
   console.log("This code WILL execute: 'john' has access to 'feature2'");
 }
 
-// Set current actor to "jane"
 Mother.of("jane");
+// ... "jane" is "current actor" ...
 if (Mother.allows("feature3")) {
   console.log("This demonstrates that features don't have to be 'mentioned' globally to be enabled for a specific actor");
 }
@@ -164,8 +163,8 @@ Mother.register({
 }, {
   "john": { "feature2": true } // overrides for "feature2"; inherits "feature1"
 });
-Mother.of("john");
-if (Mother.allows("feature1")) {
+
+if (Mother.of("john").allows("feature1")) {
   console.log("This executes because 'john' inherited the global 'feature1' registration");
 }
 ```
@@ -284,9 +283,9 @@ Mother has very few methods. They are:
 
     While `features` is always required, `actors` is optional. Both
     parameters (if provided) must be plain old JavaScript objects
-    (POJOs). The return value is currently not specified and may not be
-    relied upon. If there is a problem, such as invalid values in the
-    parameters, then an `Error` is raised.
+    (POJOs). The return value is the _Mother_ object, allowing you to
+    chain other calls. If there is a problem, such as invalid values in
+    the parameters, then an `Error` is raised.
 
     Any and all previously registered features and/or actor data is
     cleared whenever this call is made. New registrations completely
@@ -364,11 +363,20 @@ Mother has very few methods. They are:
 
     This sets the current actor to the value provided in the optional
     `actor` parameter. This state, much like feature and actor
-    registrations is stored and used by Mother for subsequent
-    `.allows()` queries. You may omit the `actor` parameter, or pass
-    `null`, `false`, or `undefined` in order to clear the current
-    actor so that subsequent queries will operate against the global
-    scope instead of a specific actor.
+    registrations is stored and used by _Mother_ for subsequent
+    `.allows()` queries.
+
+    The return value is the _Mother_ object, allowing you to chain other
+    method calls. A common case for this is:
+
+    ```javascript
+    if (Mother.of("john").allows("snacking")) { ... }
+    ```
+
+    You may omit the `actor` parameter, or pass `null`, `false`, or
+    `undefined` in order to clear the current actor so that subsequent
+    queries will operate against the global scope instead of a specific
+    actor.
 
     You may provide an `actor` that is not currently registered. This
     allows you to select your current actor prior to the `.register()`
@@ -378,12 +386,6 @@ Mother has very few methods. They are:
     actor was set. This is because the unknown actor effectively
     inherits the entire global feature registry since there's no actor-
     specific registration data for the actor.
-
-    For now, the return value of this method isn't specified and should
-    not be relied upon. Tentative plans include returning the _Mother_
-    object so that a query could be chained directly off of this method.
-    Another option is to return a boolean indicating whether the
-    provided `actor` is current registered (known) or not.
 
 *   `.clear()`
 
@@ -395,6 +397,14 @@ Mother has very few methods. They are:
     ```javascript
     Mother.register({}); // clears existing registrations
     Mother.of(); // clears existing "current actor"
+    ```
+
+    The return value is the _Mother_ object, allowing you to chain other
+    method calls. While not terribly useful, it does make the following
+    possible:
+
+    ```javascript
+    if (Mother.clear().register({}, { "john": { "snacking": true }}).of("john").allows("snacking")) { ... }
     ```
 
 ## Contributing
