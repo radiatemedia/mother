@@ -4,7 +4,7 @@
 [![Dependency Status](https://gemnasium.com/radiatemedia/mother.png)](https://gemnasium.com/radiatemedia/mother)
 
 _Mother_ is a very small library to assist with feature flipping your
-JavaScript application.
+JavaScript application.piv
 
 ## Installation
 
@@ -452,7 +452,7 @@ information regarding license details, the full terms are available
 in the [LICENSE](LICENSE) file located in the root of the project
 folder.
 
-A copy of the [Jasmine](http://pivotal.github.com/jasmine/) testing
+A copy of the [Jasmine](https://jasmine.github.io/) testing
 framework is vendored and distributed with _Mother_ inside the
 `test/vendor/jasmine-1.3.1` directory. Jasmine is also available under
 the MIT License which is available in the
